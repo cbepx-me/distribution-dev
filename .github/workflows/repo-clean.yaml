@@ -9,9 +9,11 @@ on:
 
 jobs:
   clean-dev-releases:
-    - uses: dev-drprasad/delete-older-releases@v0.2.0
-      with:
-        repo: JustEnoughLinuxOS/distribution-dev
-        keep_latest: 4
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: dev-drprasad/delete-older-releases@v0.2.0
+        with:
+          repo: JustEnoughLinuxOS/distribution-dev
+          keep_latest: 4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
